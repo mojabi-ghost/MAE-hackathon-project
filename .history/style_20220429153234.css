@@ -1,5 +1,6 @@
 /* Stylesheet for index.html */
 
+@import url('https://fonts.googleapis.com/css2?family=Lora&family=Work+Sans&display=swap');
 
 * {
   box-sizing:border-box;
@@ -10,7 +11,8 @@
 body {
   color: #013440;
   text-align:center;
-  
+  background-image: url(../images/background.jpg);
+  background-attachment: fixed;
 }
 
 h1, h2, h3{
