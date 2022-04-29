@@ -13,6 +13,7 @@ body {
   background-image: url(../images/backgroundImage.jpg);
   background-attachment: fixed;
 }
+}
 
 h1, h2, h3{
   font-family: 'Work Sans', sans-serif;
@@ -78,7 +79,7 @@ section {
 .content{
   margin: 1rem;
   padding: 1rem;
-  background-color: #dbd0c4;
+  background-color: #AEE6F2;
   border-radius: 25px;
 }
 
