@@ -73,6 +73,8 @@ section {
 .controls {
   font-family: 'Lora', serif;
   display: none;
+  text-decoration: none;
+  color: #000;
 }
 
 .content{
@@ -82,7 +84,9 @@ section {
   border-radius: 25px;
 }
 
-
+.wikiLink {
+  text-decoration: none;
+}
 @media only screen and (min-width: 768px) {
   .content{
       margin-left: auto;
