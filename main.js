@@ -28,15 +28,24 @@ const captions = [
   "Superman (5/6)",
   "Wonderwoman (6/6)",
 ]
- 
-//create shortcut vars
+
+const bios = [
+  "Aquaman",
+  "Batman",
+  "Cyborg",
+  "The Flash",
+  "Superman",
+  "Wonderwoman",
+]
+
+// create shortcut vars
 const frame = document.querySelector(".frame");
 const current_links = document.getElementsByClassName("wikiLink");
 const slides = frame.querySelectorAll("img");
-const altName = frame.querySelectorAll("alt");
-const caption = document.querySelector(".caption");  
+const caption = document.querySelector(".caption"); 
+const paragraph = document.querySelector(".paragraph"); 
 
-//with JS active, hide all images
+// with JS active, hide all images
 slides.forEach((slide) => {
   slide.classList.add("hide", "abs-pos");
 });
@@ -45,8 +54,11 @@ slides.forEach((slide) => {
 slides[0].classList.remove("hide");
 set_attributes(0);
 caption.innerHTML = captions[0];
+paragraph.innerHTML = bios[0];
 
+// Change the attributes of the <image> tags and <a> tags
 function set_attributes(i){
+  paragraph.innerHTML = bios[i];
   for(let j = 0; j < current_links.length; j++){
     current_links[j].setAttribute("href", links[i]);
     slides[j].setAttribute("alt", captions[i]);
@@ -54,6 +66,7 @@ function set_attributes(i){
   }
 }
 
+// Find the index that represents the current image
 function get_current_image_index(){
   for(let i = 0; i < captions.length; i++){
     if(slides[0].alt == captions[i]){
@@ -61,6 +74,7 @@ function get_current_image_index(){
     }
   }
 }
+
 
 function change_image(){
   // deactivate current image
@@ -75,6 +89,7 @@ function change_image(){
   caption.innerHTML = slides[0].alt;
 }
 
+//
 function next_image(){
   i = get_current_image_index();
   if(i + 1 > 5){
