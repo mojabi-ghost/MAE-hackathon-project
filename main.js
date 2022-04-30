@@ -35,7 +35,7 @@ const bios = [
   "Cyborg (Victor Stone) is a superhero appearing in American comic books published by DC Comics. The character was created by writer Marv Wolfman and artist George Pérez and first appears in an insert preview in DC Comics Presents #26 (October 1980)",
   "The Flash (or simply Flash) is the name of several superheroes appearing in American comic books published by DC Comics. Created by writer Gardner Fox and artist Harry Lampert, the original Flash first appeared in Flash Comics #1 (cover date January 1940/release month November 1939).",
   "Superman is a superhero who appears in American comic books published by DC Comics. The character was created by writer Jerry Siegel and artist Joe Shuster, and debuted in the comic book Action Comics #1 (cover-dated June 1938 and published April 18, 1938).",
-  "Wonder Woman is a superheroine appearing in American comic books published by DC Comics.[3] The character is a founding member of the Justice League. The character first appeared in All Star Comics #8 published October 21, 1941[4] with her first feature in Sensation Comics #1 in January 1942.",
+  "Wonder Woman is a superheroine appearing in American comic books published by DC Comics. The character is a founding member of the Justice League. The character first appeared in All Star Comics #8 published October 21, 1941[4] with her first feature in Sensation Comics #1 in January 1942.",
 ]
 
 // create shortcut vars
@@ -75,7 +75,6 @@ function get_current_image_index(){
   }
 }
 
-
 function change_image(){
   // deactivate current image
   slides[0].classList.toggle("hide");
@@ -87,6 +86,7 @@ function change_image(){
 
   //change caption text
   caption.innerHTML = slides[0].alt;
+  clearInterval(myInterval);
 }
 
 //
