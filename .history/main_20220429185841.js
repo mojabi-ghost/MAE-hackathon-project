@@ -28,7 +28,7 @@ function init() {
 
    // set the caption dynamically
    caption.innerHTML = frame.firstElementChild.alt;
-   
+
    
 
    //show the controls
@@ -36,13 +36,7 @@ function init() {
 
   
    myInterval = setInterval(changeSlide, 5000);
-
-   document.getElementById("bio").innerText = document.getElementById("mainImage").attributes.bio.textContent;
-
-   
 }
-
-
 
 
 

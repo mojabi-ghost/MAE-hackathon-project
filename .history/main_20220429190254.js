@@ -37,12 +37,10 @@ function init() {
   
    myInterval = setInterval(changeSlide, 5000);
 
-   document.getElementById("bio").innerText = document.getElementById("mainImage").attributes.bio.textContent;
-
    
 }
 
-
+document.getElementById("bio").innerText = document.getElementById("mainImage").attributes.bio.textContent;
 
 
 

@@ -11,7 +11,6 @@ function init() {
   const slides = frame.querySelectorAll("img");
   const caption = document.querySelector(".caption");
   const controls = document.querySelector(".controls");
-  const bio = document.querySelector(".bio")
   
 
   //with JS active, hide all images
@@ -28,21 +27,13 @@ function init() {
 
    // set the caption dynamically
    caption.innerHTML = frame.firstElementChild.alt;
-   
-   
 
    //show the controls
    controls.style.display = "block";
 
   
    myInterval = setInterval(changeSlide, 5000);
-
-   document.getElementById("bio").innerText = document.getElementById("mainImage").attributes.bio.textContent;
-
-   
 }
-
-
 
 
 
