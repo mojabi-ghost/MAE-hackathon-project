@@ -1,6 +1,6 @@
 //Javascript
 
-var myInterval = setInterval(next_image, 5000);
+var myInterval = setInterval(next_image, 5000, true);
 
 const links = [
   "https://en.wikipedia.org/wiki/Aquaman",
@@ -75,7 +75,7 @@ function get_current_image_index(){
   }
 }
 
-function change_image(){
+function change_image(autoSlide = false){
   // deactivate current image
   slides[0].classList.toggle("hide");
   slides[0].classList.add("current")
@@ -86,11 +86,13 @@ function change_image(){
 
   //change caption text
   caption.innerHTML = slides[0].alt;
-  clearInterval(myInterval);
+  if(!autoSlide){
+    clearInterval(myInterval);
+  }
 }
 
 //
-function next_image(){
+function next_image(autoSlide = false){
   i = get_current_image_index();
   if(i + 1 > 5){
     set_attributes(0)
@@ -98,10 +100,10 @@ function next_image(){
   else{
     set_attributes(i + 1)
   }
-  change_image();
+  change_image(autoSlide);
 }
 
-function prev_image(){
+function prev_image(autoSlide = false){
   i = get_current_image_index();
   if(i - 1 < 0){
     set_attributes(captions.length - 1)
@@ -109,5 +111,5 @@ function prev_image(){
   else{
     set_attributes(i - 1)
   }
-  change_image();
+  change_image(autoSlide);
 }
