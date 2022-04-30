@@ -20,6 +20,10 @@ function init() {
   
   // show the first slide
   slides[0].classList.remove("hide");
+  
+  //make the controls work
+   next_btn.addEventListener("click",changeSlide);
+   back_btn.addEventListener("click", changeSlide);
 
    // set the caption dynamically
    caption.innerHTML = frame.firstElementChild.alt;
@@ -27,9 +31,57 @@ function init() {
    //show the controls
    controls.style.display = "block";
 
+  
    myInterval = setInterval(changeSlide, 5000);
 }
 
+
+
+function changeSlide(e) {
+  
+    // stop link from trying to reload page
+    if(e) {
+      e.preventDefault();
+      clearInterval(myInterval);
+    }
+    
+    //shortcut vars
+    const frame = document.querySelector(".frame");
+    const slides = frame.querySelectorAll("img");
+    const caption = document.querySelector(".caption");
+    let showing = document.querySelector(".current");
+    let nextUp = "";
+  
+    if(!e || e.target.className == 'next-btn') {
+      nextUp = showing.nextElementSibling;
+    }else{
+      nextUp = showing.previousElementSibling;
+    }
+  
+    
+    // deactivate current image
+    showing.classList.toggle("hide");
+    showing.classList.toggle("current");
+    
+    //make sure next image is there
+    if (!nextUp) {
+      nextUp = slides[slides.length - 1];
+    }
+  
+    if (nextUp.nodeName !== "IMG") {
+      nextUp = slides[0];
+    }
+  
+    // activate next image
+    nextUp.classList.toggle("hide");
+    nextUp.classList.toggle("current");
+
+    //change caption text
+    caption.innerHTML = nextUp.alt;
+
+    
+  }
+  
 const DC = [
     "/images/aquaman.jpg",
     "/images/batman.jpg",
@@ -49,7 +101,6 @@ function get_current_image_index(current_image){
 
 function next_image() {
     let current_image = document.querySelector("img");
-    console.log(current_image)
     i = get_current_image_index(current_image);
     if (i + 1 == DC.length){
         current_image.src = current_image.src.substring(0, 21) + DC[0];
