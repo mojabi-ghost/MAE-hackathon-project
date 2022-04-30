@@ -10,7 +10,7 @@
   body {
     color: #013440;
     text-align:center;
-    background-image: url(../images/backgroundImage.jpg);
+    background-image: url("images/backgroundImage.jpg");
     background-attachment: fixed;
   }
   
