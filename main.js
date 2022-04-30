@@ -1,6 +1,6 @@
 //Javascript
 
-var myInterval = setInterval(next_image, 5000, true);
+// To add or change images to the gallery, just modify the links, the image_location, captions, and bios array 
 
 const links = [
   "https://en.wikipedia.org/wiki/Aquaman",
@@ -38,27 +38,34 @@ const bios = [
   "Wonder Woman is a superheroine appearing in American comic books published by DC Comics. The character is a founding member of the Justice League. The character first appeared in All Star Comics #8 published October 21, 1941 with her first feature in Sensation Comics #1 in January 1942.",
 ]
 
-// create shortcut vars
+// Auto slideshow, every 5 second it calls the next_image function
+var myInterval = setInterval(next_image, 5000, true);
+
+// Create shortcut vars
 const frame = document.querySelector(".frame");
 const current_links = document.getElementsByClassName("wikiLink");
 const slides = frame.querySelectorAll("img");
 const caption = document.querySelector(".caption"); 
 const paragraph = document.querySelector(".paragraph"); 
 
-// with JS active, hide all images
+// With JS active, hide all images
 slides.forEach((slide) => {
   slide.classList.add("hide", "abs-pos");
 });
 
-// show the first slide
+// Show the first slide
 slides[0].classList.remove("hide");
 set_attributes(0);
+
+// Set the captions and bios for the first slide
 caption.innerHTML = captions[0];
 paragraph.innerHTML = bios[0];
 
-// Change the attributes of the <image> tags and <a> tags
 function set_attributes(i){
+  // Change the bios
   paragraph.innerHTML = bios[i];
+
+  // Change the attributes of the <image> tags and <a> tags
   for(let j = 0; j < current_links.length; j++){
     current_links[j].setAttribute("href", links[i]);
     slides[j].setAttribute("alt", captions[i]);
@@ -76,40 +83,53 @@ function get_current_image_index(){
 }
 
 function change_image(autoSlide = false){
-  // deactivate current image
+  // Deactivate current image
   slides[0].classList.toggle("hide");
+
+  // Add transition
   slides[0].classList.add("current")
 
-  // activate next image
+  // Activate next image
   slides[1].classList.toggle("hide");
+
+  // Add transition
   slides[1].classList.toggle("current");
 
-  //change caption text
+  // Change caption text
   caption.innerHTML = slides[0].alt;
+
+  // Stop autoSlide if next or prev button is pressed
   if(!autoSlide){
     clearInterval(myInterval);
   }
 }
 
-//
+// Change image to the next image
 function next_image(autoSlide = false){
   i = get_current_image_index();
+
+  // Prepare the next image
   if(i + 1 > 5){
     set_attributes(0)
   }
   else{
     set_attributes(i + 1)
   }
+
+  // If next_image is not called by the setInterval function, turn off autoSlide. Otherwise, keep autoSlide running
   change_image(autoSlide);
 }
 
-function prev_image(autoSlide = false){
+// Change image to the previous image
+function prev_image(){
   i = get_current_image_index();
+
+  // Prepare the previous image
   if(i - 1 < 0){
     set_attributes(captions.length - 1)
   }
   else{
     set_attributes(i - 1)
   }
-  change_image(autoSlide);
+  change_image();
 }
