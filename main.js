@@ -30,12 +30,12 @@ const captions = [
 ]
 
 const bios = [
-  "Aquaman",
-  "Batman",
-  "Cyborg",
-  "The Flash",
-  "Superman",
-  "Wonderwoman",
+  "Aquaman (Arthur Curry) is a superhero appearing in American comic books published by DC Comics. Created by Paul Norris and Mort Weisinger, the character debuted in More Fun Comics #73 (November 1941).",
+  "Batman is a superhero appearing in American comic books published by DC Comics. The character was created by artist Bob Kane and writer Bill Finger, and debuted in the 27th issue of the comic book Detective Comics on March 30, 1939",
+  "Cyborg (Victor Stone) is a superhero appearing in American comic books published by DC Comics. The character was created by writer Marv Wolfman and artist George Pérez and first appears in an insert preview in DC Comics Presents #26 (October 1980)",
+  "The Flash (or simply Flash) is the name of several superheroes appearing in American comic books published by DC Comics. Created by writer Gardner Fox and artist Harry Lampert, the original Flash first appeared in Flash Comics #1 (cover date January 1940/release month November 1939).",
+  "Superman is a superhero who appears in American comic books published by DC Comics. The character was created by writer Jerry Siegel and artist Joe Shuster, and debuted in the comic book Action Comics #1 (cover-dated June 1938 and published April 18, 1938).",
+  "Wonder Woman is a superheroine appearing in American comic books published by DC Comics.[3] The character is a founding member of the Justice League. The character first appeared in All Star Comics #8 published October 21, 1941[4] with her first feature in Sensation Comics #1 in January 1942.",
 ]
 
 // create shortcut vars
