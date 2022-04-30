@@ -1,6 +1,6 @@
 //Javascript
 
-//var myInterval = setInterval(next_image, 5000);
+var myInterval = setInterval(next_image, 5000);
 
 const links = [
   "https://en.wikipedia.org/wiki/Aquaman",
@@ -38,7 +38,7 @@ const caption = document.querySelector(".caption");
 
 //with JS active, hide all images
 slides.forEach((slide) => {
-  slide.classList.add("hide", "abs-pos", "current");
+  slide.classList.add("hide", "abs-pos");
 });
 
 // show the first slide
@@ -64,10 +64,12 @@ function get_current_image_index(){
 
 function change_image(){
   // deactivate current image
-  slides[0].classList.add("hide");
+  slides[0].classList.toggle("hide");
+  slides[0].classList.add("current")
 
   // activate next image
-  slides[1].classList.remove("hide");
+  slides[1].classList.toggle("hide");
+  slides[1].classList.toggle("current");
 
   //change caption text
   caption.innerHTML = slides[0].alt;
@@ -82,7 +84,6 @@ function next_image(){
     set_attributes(i + 1)
   }
   change_image();
-  
 }
 
 function prev_image(){
@@ -94,5 +95,4 @@ function prev_image(){
     set_attributes(i - 1)
   }
   change_image();
-  
 }
